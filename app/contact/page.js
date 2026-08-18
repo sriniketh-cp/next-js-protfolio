@@ -1,6 +1,5 @@
 'use client';
 import { useState } from 'react';
-import emailjs from '@emailjs/browser';
 
 export default function Contacts() {
   const [formData, setFormData] = useState({ name: '', email: '', project: '' });
@@ -36,27 +35,33 @@ export default function Contacts() {
     setStatus({ type: 'loading', msg: 'Sending message...' });
 
     try {
-      // REPLACE THESE 3 STRINGS WITH YOUR ACTUAL EMAILJS KEYS
-      const SERVICE_ID ='service_mufnrdg';
-      const TEMPLATE_ID = 'template_b2tewtq';
-      const PUBLIC_KEY = 'PT-gtbFm5mEakAWpX';
+      // PASTE YOUR FORMSPREE URL HERE
+      const FORMSPREE_URL = 'https://formspree.io/f/xoeaplpb';
 
-      // The keys inside this object must match the {{variables}} in your EmailJS template
-      const templateParams = {
-        from_name: formData.name,
-        reply_to: formData.email,
-        message: formData.project,
-      };
+      const response = await fetch(FORMSPREE_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.project,
+        })
+      });
 
-      await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY);
-
-      setSubmittedEmails(prev => new Set(prev).add(formData.email));
-      setStatus({ type: 'success', msg: 'Message sent successfully!' });
-      setFormData({ name: '', email: '', project: '' }); // Reset form after success
+      if (response.ok) {
+        setSubmittedEmails(prev => new Set(prev).add(formData.email));
+        setStatus({ type: 'success', msg: 'Message sent successfully!' });
+        setFormData({ name: '', email: '', project: '' }); // Reset form after success
+      } else {
+        setStatus({ type: 'error', msg: 'Failed to send message. Please try again later.' });
+      }
 
     } catch (error) {
-      console.error('EmailJS Error:', error);
-      setStatus({ type: 'error', msg: 'Failed to send message. Please try again later.' });
+      console.error('Formspree Error:', error);
+      setStatus({ type: 'error', msg: 'Network error. Please check your connection and try again.' });
     }
   };
 
