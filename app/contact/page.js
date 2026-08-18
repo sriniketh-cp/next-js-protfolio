@@ -1,11 +1,12 @@
 'use client';
 import { useState } from 'react';
+import emailjs from '@emailjs/browser';
 
 export default function Contacts() {
   const [formData, setFormData] = useState({ name: '', email: '', project: '' });
   const [errors, setErrors] = useState({});
   const [status, setStatus] = useState(null);
-  const [submittedEmails, setSubmittedEmails] = useState(new Set()); // To track duplicate entries in current session
+  const [submittedEmails, setSubmittedEmails] = useState(new Set()); 
 
   const validate = () => {
     let newErrors = {};
@@ -34,12 +35,29 @@ export default function Contacts() {
 
     setStatus({ type: 'loading', msg: 'Sending message...' });
 
-    // Mocking an API call
-    setTimeout(() => {
+    try {
+      // REPLACE THESE 3 STRINGS WITH YOUR ACTUAL EMAILJS KEYS
+      const SERVICE_ID = 'YOUR_SERVICE_ID_HERE';
+      const TEMPLATE_ID = 'YOUR_TEMPLATE_ID_HERE';
+      const PUBLIC_KEY = 'YOUR_PUBLIC_KEY_HERE';
+
+      // The keys inside this object must match the {{variables}} in your EmailJS template
+      const templateParams = {
+        from_name: formData.name,
+        reply_to: formData.email,
+        message: formData.project,
+      };
+
+      await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY);
+
       setSubmittedEmails(prev => new Set(prev).add(formData.email));
       setStatus({ type: 'success', msg: 'Message sent successfully!' });
-      setFormData({ name: '', email: '', project: '' }); // Reset form
-    }, 1500);
+      setFormData({ name: '', email: '', project: '' }); // Reset form after success
+
+    } catch (error) {
+      console.error('EmailJS Error:', error);
+      setStatus({ type: 'error', msg: 'Failed to send message. Please try again later.' });
+    }
   };
 
   return (
@@ -82,7 +100,7 @@ export default function Contacts() {
               value={formData.project}
               onChange={(e) => setFormData({...formData, project: e.target.value})}
               className={`w-full bg-white/5 border ${errors.project ? 'border-red-500' : 'border-white/10'} rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent-blue transition-colors resize-y`}
-              placeholder="Tell me about your project..."
+              placeholder="Tell me about your project, timeline, and budget..."
             ></textarea>
             {errors.project && <p className="text-red-500 text-sm mt-1">{errors.project}</p>}
           </div>
@@ -90,13 +108,13 @@ export default function Contacts() {
           <button 
             type="submit" 
             disabled={status?.type === 'loading'}
-            className="w-full py-4 bg-gradient-main text-white rounded-lg font-bold shadow-lg hover:opacity-90 disabled:opacity-50 transition-all"
+            className="w-full py-4 bg-gradient-to-r from-[#4f8ef7] to-[#9b59f5] text-white rounded-lg font-bold shadow-lg hover:opacity-90 disabled:opacity-50 transition-all"
           >
             {status?.type === 'loading' ? 'Sending...' : 'Send Message'}
           </button>
 
           {status && status.type !== 'loading' && (
-            <p className={`text-center font-medium ${status.type === 'success' ? 'text-accent-green' : 'text-red-500'}`}>
+            <p className={`text-center font-medium ${status.type === 'success' ? 'text-[#1bffc8]' : 'text-red-500'}`}>
               {status.msg}
             </p>
           )}
