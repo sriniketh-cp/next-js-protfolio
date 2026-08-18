@@ -26,7 +26,7 @@ export default function Home() {
           </p>
           
           <div className="flex items-center justify-center md:justify-start gap-4">
-            <Link href="/contacts" className="px-6 py-3 bg-gradient-main text-white rounded-full font-semibold shadow-lg hover:-translate-y-1 transition-all">
+            <Link href="/contact" className="px-6 py-3 bg-gradient-main text-white rounded-full font-semibold shadow-lg hover:-translate-y-1 transition-all">
               Hire Me
             </Link>
             <Link href="/projects" className="px-6 py-3 bg-white/5 border border-white/10 text-white rounded-full font-semibold hover:bg-white/10 transition-all">

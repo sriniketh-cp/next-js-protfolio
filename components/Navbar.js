@@ -25,7 +25,7 @@ export default function Navbar() {
               {item}
             </Link>
           ))}
-          <Link href="/contacts" className="px-5 py-2 bg-gradient-main text-white rounded-full text-sm font-semibold shadow-lg hover:-translate-y-0.5 transition-transform">
+          <Link href="/contact" className="px-5 py-2 bg-gradient-main text-white rounded-full text-sm font-semibold shadow-lg hover:-translate-y-0.5 transition-transform">
             Hire Me
           </Link>
         </div>
@@ -41,7 +41,7 @@ export default function Navbar() {
       {/* Mobile Menu */}
       {isOpen && (
         <div className="md:hidden absolute top-20 left-0 w-full bg-primary/95 backdrop-blur-xl border-b border-white/10 p-4 flex flex-col gap-4">
-           {['Home', 'About', 'Projects', 'Skills', 'Contacts'].map((item) => (
+           {['Home', 'About', 'Projects', 'Skills', 'Contact'].map((item) => (
             <Link key={item} href={item === 'Home' ? '/' : `/${item.toLowerCase()}`} onClick={() => setIsOpen(false)} className="text-center py-2 text-gray-300 hover:text-white">
               {item}
             </Link>

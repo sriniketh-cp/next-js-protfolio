@@ -33,7 +33,7 @@ export default function About() {
               showUserInfo={true}
               enableTilt={true}
               enableMobileTilt={false}
-              onContactClick={() => router.push('/contacts')}
+              onContactClick={() => router.push('/contact')}
               iconUrl="/assets/iconpattern.png"
               behindGlowEnabled={true}
               innerGradient="linear-gradient(145deg, rgba(79, 142, 247, 0.3) 0%, rgba(155, 89, 245, 0.3) 100%)"
@@ -102,7 +102,7 @@ export default function About() {
             <a href="/ " download className="btn-primary px-6 py-3 bg-gradient-main text-white rounded-full font-semibold shadow-lg hover:-translate-y-1 transition-all">
               Download CV
             </a>
-            <Link href="/contacts" className="px-6 py-3 bg-white/5 border border-white/10 text-white rounded-full font-semibold hover:bg-white/10 transition-all">
+            <Link href="/contact" className="px-6 py-3 bg-white/5 border border-white/10 text-white rounded-full font-semibold hover:bg-white/10 transition-all">
               Let's Talk
             </Link>
           </div>

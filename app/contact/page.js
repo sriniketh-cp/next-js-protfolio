@@ -37,9 +37,9 @@ export default function Contacts() {
 
     try {
       // REPLACE THESE 3 STRINGS WITH YOUR ACTUAL EMAILJS KEYS
-      const SERVICE_ID = 'YOUR_SERVICE_ID_HERE';
-      const TEMPLATE_ID = 'YOUR_TEMPLATE_ID_HERE';
-      const PUBLIC_KEY = 'YOUR_PUBLIC_KEY_HERE';
+      const SERVICE_ID ='service_mufnrdg';
+      const TEMPLATE_ID = 'template_b2tewtq';
+      const PUBLIC_KEY = 'PT-gtbFm5mEakAWpX';
 
       // The keys inside this object must match the {{variables}} in your EmailJS template
       const templateParams = {
