@@ -50,7 +50,7 @@ export default function Achievements() {
         {achievementsList.map((item) => (
           <div key={item.id} className="glass-card p-8 hover:-translate-y-2 transition-transform duration-300 group">
             {item.image && (
-              <div
+              <img
                 src={item.image}
                 alt={item.title}
                 className="w-full h-48 object-cover rounded-xl mb-6 border border-white/10"
