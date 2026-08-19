@@ -3,12 +3,13 @@ export default function Achievements() {
     {
       id: 1,
       category: "Certification",
-      title: "AWS Certified Developer",
+      title: "AWS Certified Cloud Practioner",
       date: "2025",
       desc: "Validated expertise in developing, deploying, and debugging cloud-based applications using AWS.",
       icon: "fa-aws",
       color: "text-accent-orange",
-      bg: "bg-accent-orange/10 border-accent-orange/30"
+      bg: "bg-accent-orange/10 border-accent-orange/30",
+      link: "https://www.credly.com/badges/7cb34bd6-8806-411d-a01e-eea51dec0e0f/public_url"
     },
     {
       id: 2,
@@ -56,17 +57,35 @@ export default function Achievements() {
               />
             )}
             <div className="flex justify-between items-start mb-6">
-              <div className={`w-14 h-14 rounded-2xl border flex items-center justify-center ${item.bg} group-hover:scale-110 transition-transform`}>
-                <i className={`fab ${item.icon} fas ${item.icon} text-2xl ${item.color}`}></i>
-              </div>
+              {item.image ? (
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-14 h-14 rounded-2xl object-cover border border-white/10 group-hover:scale-110 transition-transform"
+                />
+              ) : (
+                <div className={`w-14 h-14 rounded-2xl border flex items-center justify-center ${item.bg} group-hover:scale-110 transition-transform`}>
+                  <i className={`fab ${item.icon} fas ${item.icon} text-2xl ${item.color}`}></i>
+                </div>
+              )}
               <span className="text-xs font-bold text-gray-500 uppercase tracking-wider">{item.date}</span>
             </div>
-            
+
             <span className="text-xs font-semibold text-gray-400 mb-2 block">{item.category}</span>
             <h3 className="font-display text-xl font-bold text-white mb-3">{item.title}</h3>
             <p className="text-sm text-gray-400 leading-relaxed">
               {item.desc}
             </p>
+            {item.link && (
+              <a
+                href={item.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block mt-4 text-sm font-medium text-accent-orange hover:underline"
+              >
+                View Credly Badge →
+              </a>
+            )}
           </div>
         ))}
       </div>
