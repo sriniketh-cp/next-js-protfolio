@@ -20,7 +20,7 @@ export default function Navbar() {
         </Link>
         
         <div className="hidden md:flex items-center gap-6">
-          {['Home', 'About', 'Projects', 'Skills', 'Contact'].map((item) => (
+          {['Home', 'About', 'Projects', 'Skills', 'Achievements', 'Contact'].map((item) => (
             <Link key={item} href={item === 'Home' ? '/' : `/${item.toLowerCase()}`} className="text-sm font-medium text-gray-400 hover:text-white transition-colors">
               {item}
             </Link>
@@ -41,7 +41,7 @@ export default function Navbar() {
       {/* Mobile Menu */}
       {isOpen && (
         <div className="md:hidden absolute top-20 left-0 w-full bg-primary/95 backdrop-blur-xl border-b border-white/10 p-4 flex flex-col gap-4">
-           {['Home', 'About', 'Projects', 'Skills', 'Contact'].map((item) => (
+           {['Home', 'About', 'Projects', 'Skills', 'Achievements', 'Contact'].map((item) => (
             <Link key={item} href={item === 'Home' ? '/' : `/${item.toLowerCase()}`} onClick={() => setIsOpen(false)} className="text-center py-2 text-gray-300 hover:text-white">
               {item}
             </Link>
