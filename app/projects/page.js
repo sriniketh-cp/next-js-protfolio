@@ -32,7 +32,7 @@ export default function Projects() {
       title: "Moneywise Website",
       desc: "Designed a responsive website for a financial magazine company",
       tags: ["React js", "Firebase", "CSS3"],
-      img: "/images/Moneywise website screenshot.png",
+      img: "/images/Moneywisescreenshot.png",
       liveUrl: "https://moneywisemag.in/"
     },
     {
