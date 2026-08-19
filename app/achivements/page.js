@@ -17,6 +17,7 @@ export default function Achievements() {
       date: "May 2026",
       desc: "Successfully completed Bachelor of Computer Applications with a focus on software engineering architectures.",
       icon: "fa-graduation-cap",
+      image: "/images/Christ_University_Official_Logo.png",
       color: "text-accent-cyan",
       bg: "bg-accent-cyan/10 border-accent-cyan/30"
     },
@@ -27,6 +28,7 @@ export default function Achievements() {
       date: "Oct 2025 - Mar 2026",
       desc: "Served as an App and Website Developer intern, delivering production-ready features for a financial startup.",
       icon: "fa-briefcase",
+      image: "/images/Moneywisescreenshot.png",
       color: "text-accent-green",
       bg: "bg-accent-green/10 border-accent-green/30"
     }
@@ -46,6 +48,13 @@ export default function Achievements() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {achievementsList.map((item) => (
           <div key={item.id} className="glass-card p-8 hover:-translate-y-2 transition-transform duration-300 group">
+            {item.image && (
+              <img
+                src={item.image}
+                alt={item.title}
+                className="w-full h-48 object-cover rounded-xl mb-6 border border-white/10"
+              />
+            )}
             <div className="flex justify-between items-start mb-6">
               <div className={`w-14 h-14 rounded-2xl border flex items-center justify-center ${item.bg} group-hover:scale-110 transition-transform`}>
                 <i className={`fab ${item.icon} fas ${item.icon} text-2xl ${item.color}`}></i>
