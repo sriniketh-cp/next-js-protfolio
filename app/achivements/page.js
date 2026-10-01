@@ -27,7 +27,7 @@ export default function Achievements() {
       category: "Professional",
       title: "6-Month Internship at Moneywise",
       date: "Oct 2025 - Mar 2026",
-      desc: "Served as an App and Website Developer intern, delivering production-ready features for a financial startup.",
+      desc: "Served as an App and Website Developer intern, delivering production-ready features for a Magazine startup.",
       icon: "fa-briefcase",
       image: "/images/Moneywisescreenshot.png",
       color: "text-accent-green",

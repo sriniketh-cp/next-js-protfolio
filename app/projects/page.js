@@ -42,7 +42,24 @@ export default function Projects() {
       tags: ["HTML", "CSS", "JavaScript"],
       img: "/images/sriram trophies screenshot.png",
       liveUrl: "https://sriramtrophies.in/"
+    },
+    {
+      id: 6,
+      title: "DSA Visualizer",
+      desc: "Interactive platform to visualize common data structures (arrays, linked lists, stacks, queues, trees, graphs) and algorithms (sorting, searching) with step-by-step animations.",
+      tags: ["React js", "Animation libraries", "DSA algorithms"],
+      img: "/images/dsa_visualizer.png",
+      liveUrl: "https://vercel.com/srinikeths-projects/dsa-visualizer/deployments"
+    },
+     {
+      id: 7,
+      title: "Dynamic Intreative DSA Algorithm Tracer",
+      desc: "A dynamic and intreative DSA Algorithm tracer where students can understand there own code by creative visualizations",
+      tags: ["React js", "python", "DSA algorithms"],
+      img: "/images/algotrace.png",
+      liveUrl: "https://vercel.com/srinikeths-projects/algotrace-ai-fronted-and-api-integration"
     }
+
   ];
 
   return (
